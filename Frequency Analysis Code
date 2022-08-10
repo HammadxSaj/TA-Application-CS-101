@@ -1,0 +1,28 @@
+\\ Frequency Analysis is basically the study of frequency of letters in order to break a number of substitution ciphers like the infamous 
+Caesar shift cipher(reference attached at the bottom). Through frequency analysis the occurrence of each letter is counted in a text and this same process 
+is used on a number of different texts based on the similar cipher algorithm in order to crack it just by identifying the pattern of the frequency of the letters. 
+The Yammer post extensively explains this frequency analysis, and the code below is just to give an basic idea of how this concept can be utilized by providing an 
+output indicating the frequency of each letters. To provide much more accurate understanding a graph is needed but since this application is limited to the course 
+Programming Fundamentals, I have kept it limited to just the frequency of the letters. This program can also be written in hardly less than ten lines, I purposely wrote 
+this code a little longer to include more concepts and data-types of this course. 
+
+
+string = str(input("Please enter the string to count the frequency of the letters: "))
+string = string.lower()   #converts string to lower case to prevent missing out capital letters.
+alphabetslst = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+emplst = []    #final list that will have the frequency of all the letters.
+
+
+def frequencyanalysis(emplst, string):
+    for i in string:
+        if i.isalpha() == False:
+            continue
+        else:
+            if i in alphabetslst:
+                freq = string.count(i)
+                freqtuple = (i, freq)
+                emplst.append(freqtuple)
+                alphabetslst.remove(i)
+    return emplst
+    
+print(frequencyanalysis(emplst,string))
